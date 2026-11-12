@@ -20,6 +20,79 @@
 .map-caption{z-index:2;background:#fff8e9f2;border-color:#6b583f;max-width:370px}
 @media(max-width:950px){.map-pin{min-width:103px;max-width:125px}}
 @media(max-width:650px){.map-card{min-height:unset;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:15px 10px 12px;align-items:stretch}.map-pin{position:relative;left:auto!important;top:auto!important;transform:none!important;max-width:none;min-width:0;min-height:100px}.map-pin:hover{transform:none}.map-caption{position:relative;left:auto;bottom:auto;grid-column:1/-1;max-width:none}.illustrated-map{filter:blur(5px) saturate(1.1);background-position:center}}
+
+/* Canada Adventure 4.0: one stable 16:9 image-space for landscape screens.
+   At small widths, the same button nodes become a touch-friendly responsive list. */
+:root{--wood:#734b2c;--wood-edge:#3c291d}
+.topbar{max-width:1500px;padding-block:10px}
+.wrap{max-width:1500px}
+.hero{gap:10px;margin-bottom:12px}
+.hero-copy,.progressbox{padding:11px 16px;border-radius:17px}
+.hero h2{font-size:clamp(1.3rem,2.4vw,1.85rem)}
+.hero-copy p{font-size:.92rem}
+.progressbox{min-width:285px}
+.map-card{aspect-ratio:16/9;min-height:0!important;height:auto;display:block;padding:0;overflow:hidden;border:4px solid #4c3924;border-radius:22px;background:#315b53;isolation:isolate}
+.illustrated-map{position:absolute;inset:0;z-index:0;background-image:linear-gradient(180deg,rgba(20,45,35,.11),rgba(15,34,24,.06) 45%,rgba(12,39,27,.24)),url('canada-illustrated-map.webp');background-position:center;background-size:100% 100%;filter:none;pointer-events:none}
+.map-pin{z-index:2;width:clamp(84px,9.2vw,132px);min-width:0;max-width:none;padding:5px 7px;min-height:70px;gap:1px;border-radius:10px;border:2px solid var(--wood-edge);background:linear-gradient(165deg,#fff2d1f5,#e8c08aef);box-shadow:0 5px 0 #4a2d1caa,0 9px 16px #07180c65;color:#30271e;overflow:visible}
+.map-pin:hover{transform:translate(-50%,-53%) scale(1.03)}
+.map-pin .pin-icon{font-size:clamp(1rem,1.75vw,1.5rem);line-height:1.15}
+.map-pin .pin-name{font-size:clamp(.66rem,1vw,.86rem);line-height:1.12}
+.map-pin .pin-place{font-size:clamp(.54rem,.75vw,.64rem);line-height:1.12;color:#634a36}
+.map-pin.done,.map-pin.boss.done{background:linear-gradient(165deg,#cdfac0,#8bdc9f);border-color:#246240}
+.map-pin.boss{background:linear-gradient(160deg,#ffe9a1,#e4a947)}
+.map-pin.boss.locked{background:linear-gradient(160deg,#e5e7e6,#b4c0c0);border-color:#657b7a}
+.map-caption{z-index:3;left:10px;bottom:9px;padding:5px 9px;font-size:.69rem;max-width:305px;border:1px solid #6c5038;background:#fff5deed;border-radius:9px}
+.player-panel,.game-shell{min-width:0}
+.choice,.tile,.packitem,.btn{touch-action:manipulation}
+.choice,.packitem{min-height:52px}
+@media(max-width:1100px){
+ .topbar{gap:8px}.brand h1{font-size:1.3rem}
+ .map-pin{width:clamp(76px,10.5vw,105px);padding:4px}
+ .map-pin .pin-name{font-size:.7rem}
+ .map-pin .pin-place{font-size:.56rem}
+ .map-pin .pin-icon{font-size:1.17rem}
+ .map-caption{font-size:.61rem;max-width:265px}
+}
+/* Portrait tablets and phones, plus narrower landscape phones: card grid avoids tiny inaccessible map pins. */
+@media (max-width:760px), (max-width:1100px) and (orientation:portrait){
+ .wrap{padding-inline:12px}
+ .hero{flex-direction:column}
+ .hero-copy{padding:10px 13px}
+ .hero h2{font-size:1.38rem}
+ .progressbox{min-width:0;padding:10px 13px}
+ .topbar{padding:9px 12px}
+ .topactions{gap:6px}
+ .topactions .btn{font-size:.78rem;padding:8px 10px}
+ .pill{padding:8px 10px;font-size:.82rem}
+ .map-card{aspect-ratio:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;align-items:stretch;padding:22px 14px 12px;min-height:0!important}
+ .illustrated-map{background-size:cover;background-position:center;background-image:linear-gradient(180deg,#0e2b1b55,#0b241a85),url('canada-map-mobile.webp')}
+ .map-pin{position:relative;top:auto!important;left:auto!important;transform:none!important;width:auto;min-width:0;max-width:none;min-height:94px;padding:10px 5px;border-radius:13px}
+ .map-pin:hover{transform:none!important}
+ .map-pin .pin-icon{font-size:1.45rem}
+ .map-pin .pin-name{font-size:.88rem}
+ .map-pin .pin-place{font-size:.72rem}
+ .map-caption{position:relative;left:auto;bottom:auto;grid-column:1/-1;max-width:none;font-size:.77rem;padding:9px;margin-top:3px}
+ .player-board.dual{grid-template-columns:1fr}
+ .game-shell{padding:12px;min-height:0}
+ .player-panel{min-height:0}
+ .player-board.dual .choices{grid-template-columns:1fr 1fr}
+ .player-board.dual .tilegrid{grid-template-columns:repeat(4,1fr)}
+ .player-board.dual .choice-list{grid-template-columns:repeat(2,1fr)}
+ .question{font-size:1.1rem}
+ .choices{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .choice-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:360px){
+ .map-card{grid-template-columns:1fr;gap:9px}
+ .map-pin{min-height:68px;display:grid;grid-template-columns:32px 1fr;grid-template-rows:1fr 1fr;text-align:left;justify-items:start;padding:8px 12px}
+ .map-pin .pin-icon{grid-row:span 2;align-self:center}
+ .map-pin .pin-name{align-self:end}.map-pin .pin-place{align-self:start}
+ .choices{grid-template-columns:1fr}
+ .tilegrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .brand small{display:none}
+}
+@media(prefers-reduced-motion:reduce){.map-pin,.meter>span{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -146,7 +219,7 @@ function timer(fn,delay){const id=setInterval(fn,delay);cleanups.push(()=>clearI
 function later(fn,delay){const id=setTimeout(fn,delay);cleanups.push(()=>clearTimeout(id));return id}
 function goHome(){cleanup();currentGame=null;document.title='Canada Adventure · English 9';renderMap();window.scrollTo({top:0,behavior:'instant'})}
 function bossUnlocked(){return games.filter(g=>g.id!=='boss').every(g=>completed.has(g.id))}
-function renderMap(){const done=completed.size,unlocked=bossUnlocked(),regularDone=games.filter(g=>g.id!=='boss'&&completed.has(g.id)).length;$('#app').innerHTML=`<section class="hero"><div class="hero-copy"><h2>🗺️ Your Canadian adventure starts here!</h2><p>Choose any of the nine challenges. Finish all nine to unlock the Final Boss!</p><p class="hint">🎮 Solo or two-player split screen · 📱 Made for iPads · 🔄 Reload = fresh start</p></div><div class="progressbox"><strong>🏅 Adventures completed: ${done}/10</strong><div class="meter" role="progressbar" aria-label="Games completed" aria-valuenow="${done}" aria-valuemin="0" aria-valuemax="10"><span style="width:${done*10}%"></span></div><span class="hint">${unlocked?(completed.has('boss')?'🏆 All 10 challenges completed!':'🏆 Final Boss unlocked!'):`🔒 Finish ${9-regularDone} more ${9-regularDone===1?'game':'games'} to unlock the Final Boss.`}</span></div></section><section class="map-card" aria-label="Interactive Canada game map"><div class="illustrated-map" aria-hidden="true"></div>${games.map(g=>{let isDone=completed.has(g.id),locked=g.id==='boss'&&!unlocked;return `<button class="map-pin ${isDone?'done':''} ${g.id==='boss'?'boss':''} ${locked?'locked':''}" style="left:${g.x}%;top:${g.y}%" data-game="${g.id}" ${locked?'disabled aria-disabled="true"':''} aria-label="${locked?'Locked: ':isDone?'Completed: ':''}${esc(g.name)} at ${esc(g.place)}"><span class="pin-icon">${locked?'🔒':isDone?'✅':g.icon}</span><span class="pin-name">${esc(g.name)}</span><span class="pin-place">${locked?'LOCKED · '+(9-regularDone)+' to go':isDone?'✓ COMPLETED':esc(g.place)}</span></button>`}).join('')}<div class="map-caption">🍁 White = not played · ✅ Green = completed · 🔒 Final Boss unlocks after all 9 games. Illustrated adventure world (not to scale).<br>✨ Reload to start again.</div></section><div class="bottomline"><button class="btn mint" id="showAward">🏅 View my Canada Award</button><span class="hint">Original practice games based on the Canada learning buffet (M1–M7).</span></div><p class="foot">Made for English 9 · No login · No saved progress · No sounds · No ads · No external content</p>`;$$('[data-game]').forEach(b=>b.addEventListener('click',()=>openGame(b.dataset.game)));$('#showAward').addEventListener('click',showCertificate)}
+function renderMap(){const done=completed.size,unlocked=bossUnlocked(),regularDone=games.filter(g=>g.id!=='boss'&&completed.has(g.id)).length;$('#app').innerHTML=`<section class="hero"><div class="hero-copy"><h2>🗺️ Explore Canada!</h2><p>Choose nine games in any order. Complete them to unlock the Final Boss.</p><p class="hint">🎮 Solo or two players · 🔄 Reload = new adventure</p></div><div class="progressbox"><strong>🏅 Adventures completed: ${done}/10</strong><div class="meter" role="progressbar" aria-label="Games completed" aria-valuenow="${done}" aria-valuemin="0" aria-valuemax="10"><span style="width:${done*10}%"></span></div><span class="hint">${unlocked?(completed.has('boss')?'🏆 All 10 challenges completed!':'🏆 Final Boss unlocked!'):`🔒 Finish ${9-regularDone} more ${9-regularDone===1?'game':'games'} to unlock the Final Boss.`}</span></div></section><section class="map-card" aria-label="Canada Adventure: interactive game world"><div class="illustrated-map" aria-hidden="true"></div>${games.map(g=>{let isDone=completed.has(g.id),locked=g.id==='boss'&&!unlocked;return `<button class="map-pin ${isDone?'done':''} ${g.id==='boss'?'boss':''} ${locked?'locked':''}" style="left:${g.x}%;top:${g.y}%" data-game="${g.id}" ${locked?'disabled aria-disabled="true"':''} aria-label="${locked?'Locked: ':isDone?'Completed: ':''}${esc(g.name)} at ${esc(g.place)}"><span class="pin-icon">${locked?'🔒':isDone?'✅':g.icon}</span><span class="pin-name">${esc(g.name)}</span><span class="pin-place">${locked?'LOCKED · '+(9-regularDone)+' to go':isDone?'✓ COMPLETED':esc(g.place)}</span></button>`}).join('')}<div class="map-caption">🪵 Choose a sign to play · ✅ Green = completed · 🔒 Final Boss unlocks after 9 games.<br>🍁 Illustrated adventure world (not a geographical map).</div></section><div class="bottomline"><button class="btn mint" id="showAward">🏅 View my Canada Award</button><span class="hint">Original practice games based on the Canada learning buffet (M1–M7).</span></div><p class="foot">Made for English 9 · No login · No saved progress · No sounds · No ads · No external content</p>`;$$('[data-game]').forEach(b=>b.addEventListener('click',()=>openGame(b.dataset.game)));$('#showAward').addEventListener('click',showCertificate)}
 function openGame(id){if(id==='boss'&&!bossUnlocked()){toast('🔒 Complete the nine other games first!');return}cleanup();currentGame=id;mode='solo';document.title=`${games.find(g=>g.id===id)?.name} · Canada Adventure`;renderGame()}
 function renderGame(){if(currentGame==='boss'&&!bossUnlocked()){goHome();return}cleanup();let g=games.find(x=>x.id===currentGame);if(!g){goHome();return}$('#app').innerHTML=`<section class="game-shell"><div class="game-head"><div><h2 class="game-title">${g.icon} ${esc(g.name)}</h2><p class="game-desc">${esc(g.detail)} · Adaptive difficulty · About 2–3 minutes</p></div><div class="game-head-actions"><button class="btn small ${mode==='solo'?'primary':''}" id="solo">👤 Solo</button><button class="btn small ${mode==='duo'?'primary':''}" id="duo">👥 Two players</button><button class="btn small mint" id="homeGame">← Map</button></div></div><div class="player-board ${mode==='duo'?'dual':''}" id="boards"></div><p class="hint" style="margin-bottom:0">💡 Tap, swipe or drag. Every wrong answer gives you a helpful explanation. Progress resets when the page is reloaded.</p></section>`;$('#solo').onclick=()=>{mode='solo';renderGame()};$('#duo').onclick=()=>{mode='duo';renderGame()};$('#homeGame').onclick=goHome;const board=$('#boards');let count=mode==='duo'?2:1;for(let i=0;i<count;i++){let panel=document.createElement('section');panel.className='player-panel';panel.innerHTML=`<div class="player-head"><span class="player-tag">${mode==='duo'?`🎮 Player ${i+1}`:'🎮 Your challenge'}</span><span class="mini-stat" data-status>⭐ ${players[i].score} · Level ${level(players[i])+1}</span></div><div class="stage"></div>`;board.append(panel);makeGame(g.id,panel,players[i])}}
 function status(panel,p){let e=$('[data-status]',panel);if(e)e.textContent=`⭐ ${p.score} · Level ${level(p)+1}`}
