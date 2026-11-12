@@ -13,11 +13,11 @@
 
 /* Visual Upgrade: image is artwork only; buttons, completion badges and unlocks remain live UI. */
 .map-card{min-height:590px;background:#315b53;isolation:isolate;border-color:#593c23;box-shadow:0 12px 0 #4a2e1c55,0 24px 45px #12382d44}
-.illustrated-map{position:absolute;inset:-10px;z-index:-1;pointer-events:none;background-image:linear-gradient(180deg,#153c3859,#133e2852 55%,#0d33256e),url('canada-illustrated-map.webp');background-position:center;background-size:cover;filter:blur(7px) saturate(1.14)}
-.map-pin{background:#fff9edfa;border:3px solid #553e26;box-shadow:0 6px 0 #3023157d,0 12px 24px #161c125c;min-width:124px;max-width:154px}
+.illustrated-map{position:absolute;inset:-10px;z-index:0;pointer-events:none;background-image:linear-gradient(180deg,#153c3820,#133e281c 55%,#0d332538),url('canada-illustrated-map.webp');background-position:center;background-size:cover;filter:blur(3px) saturate(1.08)}
+.map-pin{z-index:2;background:#fff9edfa;border:3px solid #553e26;box-shadow:0 6px 0 #3023157d,0 12px 24px #161c125c;min-width:124px;max-width:154px}
 .map-pin.done{background:#bff5ad;border-color:#1f7442}
 .map-pin.boss.locked{background:#d7dedc;color:#4b6365;border-color:#809492}
-.map-caption{background:#fff8e9f2;border-color:#6b583f;max-width:370px}
+.map-caption{z-index:2;background:#fff8e9f2;border-color:#6b583f;max-width:370px}
 @media(max-width:950px){.map-pin{min-width:103px;max-width:125px}}
 @media(max-width:650px){.map-card{min-height:unset;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:15px 10px 12px;align-items:stretch}.map-pin{position:relative;left:auto!important;top:auto!important;transform:none!important;max-width:none;min-width:0;min-height:100px}.map-pin:hover{transform:none}.map-caption{position:relative;left:auto;bottom:auto;grid-column:1/-1;max-width:none}.illustrated-map{filter:blur(5px) saturate(1.1);background-position:center}}
 </style>
